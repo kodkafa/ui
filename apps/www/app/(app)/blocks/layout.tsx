@@ -38,7 +38,7 @@ export default function BlocksLayout({
           </Button>
           <Button asChild variant="ghost" size="sm">
             <a
-              href="https://github.com/shadcn-ui/ui/discussions/new?category=blocks-request"
+              href="https://github.com/kodkafa-ui/ui/discussions/new?category=blocks-request"
               target="_blank"
             >
               Request a block

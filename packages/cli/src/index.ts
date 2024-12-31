@@ -14,7 +14,7 @@ async function main() {
   const packageInfo = await getPackageInfo()
 
   const program = new Command()
-    .name("shadcn-ui")
+    .name("kodkafa-ui")
     .description("add components and dependencies to your project")
     .addHelpText("after", DEPRECATED_MESSAGE)
     .version(

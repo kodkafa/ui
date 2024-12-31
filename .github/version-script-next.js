@@ -4,7 +4,7 @@
 import { exec } from "child_process"
 import fs from "fs"
 
-const pkgJsonPath = "packages/shadcn/package.json"
+const pkgJsonPath = "packages/kodkafa/package.json"
 try {
   const pkg = JSON.parse(fs.readFileSync(pkgJsonPath))
   exec("git rev-parse --short HEAD", (err, stdout) => {

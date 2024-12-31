@@ -1,10 +1,10 @@
 # Contributing
 
-Thanks for your interest in contributing to ui.shadcn.com. We're happy to have you here.
+Thanks for your interest in contributing to ui.kodkafa.com. We're happy to have you here.
 
 Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull requests to see if someone else is working on something similar.
 
-If you need any help, feel free to reach out to [@shadcn](https://twitter.com/shadcn).
+If you need any help, feel free to reach out to [@kodkafa](https://kodkafa.com).
 
 ## About this repository
 
@@ -41,7 +41,7 @@ packages
 | `apps/www/components` | The React components for the website.    |
 | `apps/www/content`    | The content for the website.             |
 | `apps/www/registry`   | The registry for the components.         |
-| `packages/cli`        | The `shadcn-ui` package.                 |
+| `packages/cli`        | The `kodkafa-ui` package.                 |
 
 ## Development
 
@@ -79,16 +79,16 @@ You can use the `pnpm --filter=[WORKSPACE]` command to start the development pro
 
 #### Examples
 
-1. To run the `ui.shadcn.com` website:
+1. To run the `ui.kodkafa.com` website:
 
 ```bash
 pnpm --filter=www dev
 ```
 
-2. To run the `shadcn-ui` package:
+2. To run the `kodkafa-ui` package:
 
 ```bash
-pnpm --filter=shadcn-ui dev
+pnpm --filter=kodkafa-ui dev
 ```
 
 ## Running the CLI Locally
@@ -104,25 +104,25 @@ To run the CLI locally, you can follow the workflow:
 2. Run the development script for the CLI:
 
    ```bash
-   pnpm shadcn:dev
+   pnpm kodkafa:dev
    ```
 
 3. In another terminal tab, test the CLI by running:
 
    ```bash
-   pnpm shadcn
+   pnpm kodkafa
    ```
 
    To test the CLI in a specific app, use a command like:
 
    ```bash
-   pnpm shadcn <init | add | ...> -c ~/Desktop/my-app
+   pnpm kodkafa <init | add | ...> -c ~/Desktop/my-app
    ```
 
 4. To run the tests for the CLI:
 
    ```bash
-   pnpm --filter=shadcn test
+   pnpm --filter=kodkafa test
    ```
 
 This workflow ensures that you are running the most recent version of the registry and testing the CLI properly in your local environment.
@@ -196,7 +196,7 @@ If you have a request for a new component, please open a discussion on GitHub. W
 
 ## CLI
 
-The `shadcn-ui` package is a CLI for adding components to your project. You can find the documentation for the CLI [here](https://ui.shadcn.com/docs/cli).
+The `kodkafa-ui` package is a CLI for adding components to your project. You can find the documentation for the CLI [here](https://ui.kodkafa.com/docs/cli).
 
 Any changes to the CLI should be made in the `packages/cli` directory. If you can, it would be great if you could add tests for your changes.
 

@@ -190,7 +190,7 @@ export async function promptForConfig(
   ])
 
   const config = rawConfigSchema.parse({
-    $schema: "https://ui.shadcn.com/schema.json",
+    $schema: "https://ui.kodkafa.com/schema.json",
     style: options.style,
     tailwind: {
       config: options.tailwindConfig,

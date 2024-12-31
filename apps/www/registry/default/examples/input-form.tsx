@@ -52,7 +52,7 @@ export default function InputForm() {
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="kodkafa" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.

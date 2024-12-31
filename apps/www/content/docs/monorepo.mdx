@@ -1,21 +1,21 @@
 ---
 title: Monorepo
-description: Using shadcn/ui components and CLI in a monorepo.
+description: Using kodkafa/ui components and CLI in a monorepo.
 ---
 
 <Callout>
   **Note:** We're releasing monorepo support in the CLI as __experimental__.
   Help us improve it by testing it out and sending feedback. If you have any
   questions, please [reach out to
-  us](https://github.com/shadcn-ui/ui/discussions).
+  us](https://github.com/kodkafa-ui/ui/discussions).
 </Callout>
 
-Until now, using shadcn/ui in a monorepo was a bit of a pain. You could add
+Until now, using kodkafa/ui in a monorepo was a bit of a pain. You could add
 components using the CLI, but you had to manage where the components
 were installed and manually fix import paths.
 
 With the new monorepo support in the CLI, we've made it a lot easier to use
-shadcn/ui in a monorepo.
+kodkafa/ui in a monorepo.
 
 The CLI now understands the monorepo structure and will install the components,
 dependencies and registry dependencies to the correct paths and handle imports
@@ -31,7 +31,7 @@ To create a new monorepo project, run the `init` command. You will be prompted
 to select the type of project you are creating.
 
 ```bash
-npx shadcn@canary init
+npx kodkafa@canary init
 ```
 
 Select the `Next.js (Monorepo)` option.
@@ -56,15 +56,15 @@ cd apps/web
 ```
 
 ```bash
-npx shadcn@canary add [COMPONENT]
+npx kodkafa@canary add [COMPONENT]
 ```
 
 The CLI will figure out what type of component you are adding and install the
 correct files to the correct path.
 
-For example, if you run `npx shadcn@canary add button`, the CLI will install the button component under `packages/ui` and update the import path for components in `apps/web`.
+For example, if you run `npx kodkafa@canary add button`, the CLI will install the button component under `packages/ui` and update the import path for components in `apps/web`.
 
-If you run `npx shadcn@canary add login-01`, the CLI will install the `button`, `label`, `input` and `card` components under `packages/ui` and the `login-form` component under `apps/web/components`.
+If you run `npx kodkafa@canary add login-01`, the CLI will install the `button`, `label`, `input` and `card` components under `packages/ui` and the `login-form` component under `apps/web/components`.
 
 ### Importing components
 
@@ -120,7 +120,7 @@ turbo.json
 
 ```json title="apps/web/components.json"
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
+  "$schema": "https://ui.kodkafa.com/schema.json",
   "style": "new-york",
   "rsc": true,
   "tsx": true,
@@ -143,7 +143,7 @@ turbo.json
 
 ```json title="packages/ui/components.json"
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
+  "$schema": "https://ui.kodkafa.com/schema.json",
   "style": "new-york",
   "rsc": true,
   "tsx": true,
@@ -172,4 +172,4 @@ By following these requirements, the CLI will be able to install ui components, 
 
 We're releasing monorepo support in the CLI as **experimental**. Help us improve it by testing it out and sending feedback.
 
-If you have any questions, please reach out to us on [GitHub Discussions](https://github.com/shadcn-ui/ui/discussions).
+If you have any questions, please reach out to us on [GitHub Discussions](https://github.com/kodkafa-ui/ui/discussions).

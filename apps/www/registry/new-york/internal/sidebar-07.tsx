@@ -82,9 +82,9 @@ export const description = "A sidebar that collapses to icons."
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
+    name: "kodkafa",
     email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "/avatars/kodkafa.jpg",
   },
   teams: [
     {

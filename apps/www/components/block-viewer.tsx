@@ -214,11 +214,11 @@ function BlockViewerToolbar() {
             className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto"
             size="sm"
             onClick={() => {
-              copyToClipboard(`npx shadcn@latest add ${item.name}`)
+              copyToClipboard(`npx kodkafa@latest add ${item.name}`)
             }}
           >
             {isCopied ? <Check /> : <Terminal />}
-            <span className="hidden lg:inline">npx shadcn add {item.name}</span>
+            <span className="hidden lg:inline">npx kodkafa add {item.name}</span>
           </Button>
         </div>
         <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />

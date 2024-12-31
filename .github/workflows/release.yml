@@ -9,7 +9,7 @@ on:
 
 jobs:
   release:
-    if: ${{ github.repository_owner == 'shadcn-ui' }}
+    if: ${{ github.repository_owner == 'kodkafa-ui' }}
     name: Create a PR for release workflow
     runs-on: ubuntu-latest
     steps:
@@ -37,7 +37,7 @@ jobs:
       #   run: pnpm check
 
       - name: Build the package
-        run: pnpm shadcn:build
+        run: pnpm kodkafa:build
 
       - name: Create Version PR or Publish to NPM
         id: changesets

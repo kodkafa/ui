@@ -75,11 +75,11 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
     <form className={cn("grid items-start gap-4", className)}>
       <div className="grid gap-2">
         <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" defaultValue="shadcn@example.com" />
+        <Input type="email" id="email" defaultValue="kodkafa@example.com" />
       </div>
       <div className="grid gap-2">
         <Label htmlFor="username">Username</Label>
-        <Input id="username" defaultValue="@shadcn" />
+        <Input id="username" defaultValue="@kodkafa" />
       </div>
       <Button type="submit">Save changes</Button>
     </form>

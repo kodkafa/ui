@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: "shadcn/ui",
-  url: "https://ui.shadcn.com",
-  ogImage: "https://ui.shadcn.com/og.jpg",
+  name: "kodkafa/ui",
+  url: "https://ui.kodkafa.com",
+  ogImage: "https://ui.kodkafa.com/og.jpg",
   description:
     "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn-ui/ui",
+    twitter: "https://kodkafa.com",
+    github: "https://github.com/kodkafa-ui/ui",
   },
 }
 

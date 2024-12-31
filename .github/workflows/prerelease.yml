@@ -10,7 +10,7 @@ on:
 jobs:
   prerelease:
     if: |
-      github.repository_owner == 'kodkafa-ui' &&
+      github.repository_owner == 'kodkafa' &&
       contains(github.event.pull_request.labels.*.name, '🚀 autorelease')
     name: Build & Publish a beta release to NPM
     runs-on: ubuntu-latest

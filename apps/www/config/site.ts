@@ -6,7 +6,7 @@ export const siteConfig = {
     "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
   links: {
     twitter: "https://kodkafa.com",
-    github: "https://github.com/kodkafa-ui/ui",
+    github: "https://github.com/kodkafa/ui",
   },
 }
 

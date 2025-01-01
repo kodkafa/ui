@@ -1,0 +1,23 @@
+{
+  "name": "re-submit",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-label",
+    "@radix-ui/react-slot",
+    "@hookform/resolvers",
+    "zod",
+    "react-hook-form"
+  ],
+  "registryDependencies": [
+    "re-form",
+    "re-input"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-submit.tsx",
+      "content": "import { ReactElement, ReactNode } from \"react\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport { Button, ButtonProps } from \"@/registry/default/ui/button\"\n\nexport const ReSubmit = ({\n  children,\n  className = \"block w-full\",\n  type = \"submit\",\n  ...props\n}: Omit<ButtonProps, \"children\"> & {\n  children: ReactNode | ((isSubmitting: boolean) => ReactElement)\n}) => {\n  const {\n    formState: { isSubmitting },\n  } = useFormContext()\n\n  console.log({ isSubmitting })\n  return (\n    <Button\n      type={type}\n      className={className}\n      disabled={isSubmitting}\n      {...props}\n    >\n      {typeof children === \"function\" ? children(isSubmitting) : children}\n    </Button>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

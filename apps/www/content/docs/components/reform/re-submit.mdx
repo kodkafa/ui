@@ -1,0 +1,71 @@
+---
+title: ReSubmit
+description: Nested submit button.
+component: true
+---
+
+<ComponentPreview
+  name="re-submit-demo"
+  className="[&_input]:max-w-xs [&_button]:max-w-xs"
+  description="A form submit component."
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx kodkafa@latest add re-submit
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="re-submit" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { ReSubmit } from "@/components/ui/re-submit"
+```
+
+```tsx
+<ReSubmit>Submit</ReSubmit>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  name="re-submit-demo"
+  className="[&_input]:max-w-xs [&_button]:max-w-xs"
+  description="A form submit component."
+/>
+
+### Disabled
+
+<ComponentPreview
+  name="re-submit-disabled"
+  className="[&_input]:max-w-xs [&_button]:max-w-xs"
+  description="A disabled submit component."
+/>

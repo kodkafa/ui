@@ -1,0 +1,23 @@
+{
+  "name": "re-input",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-label",
+    "@radix-ui/react-slot",
+    "@hookform/resolvers",
+    "zod",
+    "react-hook-form"
+  ],
+  "registryDependencies": [
+    "re-form",
+    "re-submit"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-input.tsx",
+      "content": "import { InputHTMLAttributes } from \"react\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/default/ui/form\"\nimport { Input } from \"@/registry/default/ui/input\"\n\nexport type Props = InputHTMLAttributes<HTMLInputElement> & {\n  className?: string\n  name: string\n  label?: string\n  description?: string\n}\n\nexport const ReInput = ({\n  className,\n  name,\n  label,\n  description,\n  type = \"text\",\n  value,\n  ...props\n}: Props) => {\n  const form = useFormContext()\n\n  return (\n    <FormField\n      control={form.control}\n      name={name}\n      render={({ field }) => (\n        <FormItem className={className}>\n          {label && <FormLabel>{label}</FormLabel>}\n          <FormControl>\n            <Input\n              type={type}\n              className=\"reform-element\"\n              {...props}\n              {...field}\n            />\n          </FormControl>\n          {description && <FormDescription>{description}</FormDescription>}\n          <FormMessage className=\"text-xs\" />\n        </FormItem>\n      )}\n    />\n  )\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

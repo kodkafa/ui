@@ -1,0 +1,20 @@
+{
+  "name": "re-error-area",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-hook-form"
+  ],
+  "registryDependencies": [
+    "re-form",
+    "re-input",
+    "re-submit"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-error-area.tsx",
+      "content": "import { HTMLAttributes } from \"react\"\nimport { useFormContext } from \"react-hook-form\"\n\nexport type Props = HTMLAttributes<HTMLDivElement> & {\n  name?: string\n}\n\nexport const ReErrorArea = ({ name = \"root\", className, ...props }: Props) => {\n  const {\n    formState: { errors },\n  } = useFormContext()\n  const error =\n    name === \"root\" && typeof errors[name] === \"object\"\n      ? Object.values(errors[name] as Record<string, { message: string }>)\n      : errors[name]\n\n  return (\n    <div className={`reform-errorarea ${className}`}>\n      {error && (\n        <div className=\"reform-item-error\">\n          {Array.isArray(error) ? (\n            <ul>\n              {error.map((i, k) => (\n                <li key={k}>{String(i?.message)}</li>\n              ))}\n            </ul>\n          ) : (\n            <>{String(error.message)}</>\n          )}\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

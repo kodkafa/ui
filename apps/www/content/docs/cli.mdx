@@ -11,38 +11,12 @@ description: Use the CLI to add components to your project.
 
 ## init
 
-Use the `init` command to initialize configuration and dependencies for a new project.
+**DO NOT** Use the `init` command to initialize configuration and dependencies for a new project.
 
-The `init` command installs dependencies, adds the `cn` util, configures `tailwind.config.js`, and CSS variables for the project.
+Kodkafa has no `init` command installs dependencies, you should install **shadcn/ui** fist and should `init` it.
 
 ```bash
-npx kodkafa@latest init
-```
-
-You will be asked a few questions to configure `components.json`:
-
-```txt showLineNumbers
-Which style would you like to use? › New York
-Which color would you like to use as base color? › Zinc
-Do you want to use CSS variables for colors? › no / yes
-```
-
-### Options
-
-```txt
-Usage: kodkafa init [options] [components...]
-
-initialize your project and install dependencies
-
-Arguments:
-  components         the components to add or a url to the component.
-
-Options:
-  -d, --defaults    use default values i.e new-york, zinc and css variables. (default: false)
-  -f, --force       force overwrite of existing components.json. (default: false)
-  -y, --yes         skip confirmation prompt. (default: false)
-  -c, --cwd <cwd>   the working directory. defaults to the current directory.
-  -h, --help       display help for command
+npx shadcn@latest init
 ```
 
 ## add
@@ -59,16 +33,9 @@ You will be presented with a list of components to choose from:
 Which components would you like to add? › Space to select. A to toggle all.
 Enter to submit.
 
-◯  accordion
-◯  alert
-◯  alert-dialog
-◯  aspect-ratio
-◯  avatar
-◯  badge
-◯  button
-◯  calendar
-◯  card
-◯  checkbox
+◯  re-form
+◯  re-input
+◯  re-submit
 ```
 
 ### Options
@@ -101,5 +68,5 @@ npx kodkafa@latest init -c ./apps/www
 or
 
 ```bash
-npx kodkafa@latest add alert-dialog -c ./apps/www
+npx kodkafa@latest add re-form -c ./apps/www
 ```

@@ -16,31 +16,56 @@ export default function IndexPage() {
   return (
     <>
       <PageHeader>
-        <Announcement />
-        <PageHeaderHeading>Build your component library</PageHeaderHeading>
+        {/* <Announcement /> */}
+        <PageHeaderHeading>
+          Extend your <u>shadcn/ui</u> component library
+        </PageHeaderHeading>
         <PageHeaderDescription>
-          Beautifully designed components that you can copy and paste into your
-          apps. Made with Tailwind CSS. Open source.
+          Extend your <u>shadcn/ui</u> that is beautifully designed components
+          that you can copy and paste into your apps. Made with Tailwind CSS.
+          Open source.
         </PageHeaderDescription>
         <PageActions>
           <Button asChild size="sm">
             <Link href="/docs">Get Started</Link>
           </Button>
-          <Button asChild size="sm" variant="ghost">
+          {/* <Button asChild size="sm" variant="ghost">
             <Link href="/blocks">Browse Blocks</Link>
-          </Button>
+          </Button> */}
         </PageActions>
       </PageHeader>
-      <div className="border-grid border-b">
+      {/* <div className="border-grid border-b">
         <div className="container-wrapper">
           <div className="container py-4">
             <ExamplesNav className="[&>a:first-child]:text-primary" />
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="container-wrapper">
         <div className="container py-6">
-          <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
+          <p>
+            <strong>!IMPORTANT:</strong> If you do not use{" "}
+            <a
+              className="font-semibold underline"
+              href="https://ui.shadcn.com/"
+              target="_blank"
+            >
+              shadcn/ui
+            </a>{" "}
+            in your project, this is NOT suit for you.{" "}
+          </p>
+          <p>
+            Please visit{" "}
+            <a
+              className="font-semibold underline"
+              href="https://ui.shadcn.com/"
+              target="_blank"
+            >
+              shadcn/ui
+            </a>{" "}
+            and start to use.
+          </p>
+          {/* <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
             <Image
               src="/examples/cards-light.png"
               width={1280}
@@ -58,7 +83,7 @@ export default function IndexPage() {
           </section>
           <section className="hidden md:block [&>div]:p-0">
             <CardsDemo />
-          </section>
+          </section> */}
         </div>
       </div>
     </>

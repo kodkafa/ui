@@ -1,0 +1,23 @@
+{
+  "name": "re-submit",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-label",
+    "@radix-ui/react-slot",
+    "@hookform/resolvers",
+    "zod",
+    "react-hook-form"
+  ],
+  "registryDependencies": [
+    "re-form",
+    "re-input"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-submit.tsx",
+      "content": "import { Button, ButtonProps } from \"@/registry/new-york/ui/button\"\n\nexport const ReSubmit = ({\n  children,\n  className = \"block w-full\",\n  type = \"submit\",\n  ...props\n}: ButtonProps) => {\n  return (\n    <Button type={type} className={className} {...props}>\n      {children}\n    </Button>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

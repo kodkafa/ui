@@ -1,0 +1,239 @@
+---
+title: ReForm - React Hook Form as Nested
+description: Building "nested" forms with React Hook Form and Zod.
+links:
+  doc: https://ui.shadcn.com/docs/components/form
+---
+
+Yes, forms are tricky, but they don't have to be complicated!
+ReForm is a re-designed version of the shadcn/ui form elements that are nested and ready to use.
+
+We are stick to well-designed HTML forms are:
+
+- Well-structured and semantically correct.
+- Easy to use and navigate (keyboard).
+- Accessible with ARIA attributes and proper labels.
+- Has support for client and server side validation.
+- Well-styled and consistent with the rest of the application.
+
+## Features
+
+The `<ReForm />` component is a wrapper around the `react-hook-form` library. It provides a few things:
+
+- Composable components for building forms.
+- Each ReForm elements ex. `<ReInput />` component for building nested form fields.
+- Form validation using `zod`.
+- Handles accessibility and error messages.
+- Uses `React.useId()` for generating unique IDs.
+- Applies the correct `aria` attributes to form fields based on states.
+- Built to work with all shadcn/ui components.
+- Bring your own schema library. We use `zod` but you can use anything you want.
+- **You have full control over the markup and styling.**
+
+## Anatomy
+
+```tsx
+<ReForm>
+  <ReInput name="..." label="..." description="..." placeholder="..." />
+</ReForm>
+```
+
+## Example
+
+```tsx
+const schema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  password: z.string().min(8, {
+    message: "Password must be at least 8 characters.",
+  }),
+})
+
+type FormType = z.infer<typeof schema>
+
+const handleSubmit: ReformSubmitHandler<FormType> = async (data) => {
+  await mutation(data)
+}
+
+;<ReForm<FormType> schema={schema} onSubmit={handleSubmit}>
+  <ReInput
+    label="Username"
+    name="username"
+    placeholder="username, email or phone number"
+  />
+  <RePassword label="Password" name="password" placeholder="password" />
+  <ReErrorArea />
+  <ReSubmit>Login</ReSubmit>
+</ReForm>
+```
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+<Steps>
+
+### Command
+
+```bash
+npx kodkafa@latest add re-form
+```
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-label @radix-ui/react-slot react-hook-form @hookform/resolvers zod
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="re-form" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+<Steps>
+
+### Create a form schema and type
+
+Define the shape of your form using a Zod schema. You can read more about using Zod in the [Zod documentation](https://zod.dev).
+
+```tsx showLineNumbers {3,5-7,9}
+"use client"
+
+import { z } from "zod"
+
+const formSchema = z.object({
+  username: z.string().min(2).max(50),
+})
+
+type FormType = z.infer<typeof formSchema>
+```
+
+### Define a form
+
+```tsx showLineNumbers {14-19}
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+})
+type FormType = z.infer<typeof formSchema>
+
+export function LoginForm() {
+  // 1. Define a submit handler.
+  function handleSubmit<FormType>(values) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  }
+}
+```
+
+### Build your form
+
+We can now use the `<ReForm />` components to build our form.
+
+```tsx showLineNumbers {7-17,28-50}
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+
+import { ReSubmit } from "@/components/ui/button"
+import { ReErrorArea, ReForm } from "@/components/ui/form"
+import { ReInput } from "@/components/ui/input"
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+})
+
+export function LoginForm() {
+  // ...
+
+  return (
+    <ReForm<FormType> schema={formSchema} onSubmit={handleSubmit}>
+      <ReInput
+        label="Username"
+        name="username"
+        placeholder="username, email or phone number"
+      />
+      // ...
+      <ReSubmit>Login</ReSubmit>
+    </ReForm>
+  )
+}
+```
+
+### Done
+
+That's it. You now have a fully accessible form that is type-safe with client-side validation.
+
+<ComponentPreview
+  name="re-form-demo"
+  className="[&_[role=tablist]]:hidden [&>div>div:first-child]:hidden"
+/>
+
+</Steps>
+
+## Examples
+
+### Error
+
+<ComponentPreview
+  name="re-form-error"
+  className="[&_input]:max-w-xs [&_button]:max-w-xs"
+  description="ReForm error handling."
+/>
+
+### Validation Error from Backend
+
+<ComponentPreview
+  name="re-form-error-validation"
+  className="[&_input]:max-w-xs [&_button]:max-w-xs"
+  description="ReForm error handling."
+/>
+
+See the following links for more examples on how to use the `<ReForm />` component with other components:
+
+[//]: # "- [Checkbox](/docs/components/checkbox#form)"
+[//]: # "- [Date Picker](/docs/components/date-picker#form)"
+
+- [ReInput](/docs/components/re-input#form)
+- [ReSubmit](/docs/components/re-submit#form)
+
+[//]: # "- [Radio Group](/docs/components/radio-group#form)"
+[//]: # "- [Select](/docs/components/select#form)"
+[//]: # "- [Switch](/docs/components/switch#form)"
+[//]: # "- [Textarea](/docs/components/textarea#form)"
+[//]: # "- [Combobox](/docs/components/combobox#form)"

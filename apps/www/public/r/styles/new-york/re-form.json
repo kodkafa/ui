@@ -1,0 +1,30 @@
+{
+  "name": "re-form",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-label",
+    "@radix-ui/react-slot",
+    "@hookform/resolvers",
+    "zod",
+    "react-hook-form"
+  ],
+  "registryDependencies": [
+    "re-error-area",
+    "re-input",
+    "re-submit"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-form.tsx",
+      "content": "\"use client\"\n\nimport { ReactNode, useState } from \"react\"\nimport { zodResolver } from \"@hookform/resolvers/zod\"\nimport { DeepPartial, Resolver, useForm } from \"react-hook-form\"\nimport { TypeOf, ZodSchema, ZodType, undefined, z } from \"zod\"\n\nimport { errorHandler } from \"@/registry/new-york/lib/error\"\nimport { Form } from \"@/registry/new-york/ui/form\"\n\nexport type ReformSubmitHandler<T extends ZodSchema> = (\n  data: z.infer<T>\n) => Promise<boolean | void> | boolean | void\n\nexport type Props<T extends ZodSchema> = {\n  schema: T\n  resolver?: Resolver\n  onSubmit?: ReformSubmitHandler<T>\n  onChange?: ReformSubmitHandler<T>\n  defaultValues?: DeepPartial<TypeOf<T>> | undefined\n  className?: string\n  children?: ReactNode | ReactNode[]\n  autoComplete?: \"on\" | \"off\"\n  novalidate?: string\n  disabled?: boolean\n}\n\nexport const ReForm = <T extends ZodSchema>({\n  className = \"flex flex-col gap-4\",\n  schema,\n  onSubmit,\n  onChange,\n  defaultValues,\n  // disabled = false,\n  children,\n}: // ...props\nProps<T>) => {\n  const [loading, setLoading] = useState(false)\n\n  const form = useForm<z.infer<typeof schema>>({\n    resolver: zodResolver(schema as any),\n    defaultValues,\n    reValidateMode: \"onChange\",\n    // disabled,\n  })\n\n  const handleSubmit = async (data: z.infer<typeof schema>) => {\n    setLoading(true)\n    try {\n      if (onSubmit && (await onSubmit(data))) form.reset(defaultValues)\n    } catch (error) {\n      errorHandler(error, form.setError)\n    } finally {\n      setLoading(false)\n    }\n  }\n\n  const handleFormChange = () => {\n    if (onChange) {\n      onChange(form.watch())\n    }\n  }\n  // ${disabled ? 'reform-disabled' : ''}\n  return (\n    <Form {...form}>\n      <form\n        onSubmit={form.handleSubmit(handleSubmit)}\n        onChange={handleFormChange}\n        className={`reform-form ${\n          loading ? \"reform-loading\" : \"\"\n        } ${className}`}\n      >\n        {children}\n      </form>\n    </Form>\n  )\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "lib/error.ts",
+      "content": "import { FieldValues, UseFormSetError } from \"react-hook-form\"\n\ntype ValidationError = {\n  constraints: object\n  property: string\n  children?: ValidationError[]\n}\n\nexport function errorHandler<\n  T extends {\n    message: string\n    validations: ValidationError[]\n  }\n>(error: unknown, setError: UseFormSetError<FieldValues>): boolean {\n  if (error !== null) {\n    if (typeof error === \"object\") {\n      const errorResponse = error as T\n      if (\n        \"validations\" in errorResponse &&\n        errorResponse.validations.length > 0\n      ) {\n        errorResponse?.validations.map((i) => {\n          const messages = Object.values(i.constraints)\n          setError(i.property, {\n            message: String(messages[0]),\n          })\n        })\n      } else {\n        setError(\"root.generic\", { message: errorResponse?.message })\n      }\n    } else setError(\"root.generic\", { message: String(error) })\n    return true\n  } else return false\n}\n",
+      "type": "registry:lib",
+      "target": ""
+    }
+  ]
+}

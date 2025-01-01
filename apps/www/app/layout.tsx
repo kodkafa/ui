@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     "Tailwind CSS",
     "Server Components",
     "Radix UI",
+    "shadcn/ui",
+    "reform",
+    "kodkafa",
   ],
   authors: [
     {

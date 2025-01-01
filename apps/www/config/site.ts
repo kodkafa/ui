@@ -3,7 +3,7 @@ export const siteConfig = {
   url: "https://ui.kodkafa.com",
   ogImage: "https://ui.kodkafa.com/og.jpg",
   description:
-    "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
+    "Extend your shadcn/ui that is beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
   links: {
     twitter: "https://kodkafa.com",
     github: "https://github.com/kodkafa/ui",

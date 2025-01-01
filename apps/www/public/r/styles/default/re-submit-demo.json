@@ -1,0 +1,16 @@
+{
+  "name": "re-submit-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "re-form",
+    "re-input"
+  ],
+  "files": [
+    {
+      "path": "examples/reform/re-submit-demo.tsx",
+      "content": "\"use client\"\n\nimport { wait } from \"next/dist/lib/wait\"\nimport { z } from \"zod\"\n\nimport { toast } from \"@/registry/default/hooks/use-toast\"\nimport { ReForm } from \"@/registry/default/ui/reform/re-form\"\nimport { ReInput } from \"@/registry/default/ui/reform/re-input\"\nimport { ReSubmit } from \"@/registry/default/ui/reform/re-submit\"\n\nconst formSchema = z.object({\n  username: z.string().min(2, {\n    message: \"Username must be at least 2 characters.\",\n  }),\n})\ntype FormData = z.infer<typeof formSchema>\n\nexport default function ReSubmitDemo() {\n  const handleSubmit = async (data: FormData) => {\n    await wait(2000) // Wait for 2 seconds\n    toast({\n      title: \"You submitted the following values:\",\n      description: (\n        <pre className=\"mt-2 w-[340px] rounded-md bg-slate-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <ReForm\n      schema={formSchema}\n      onSubmit={handleSubmit}\n      defaultValues={{ username: \"kodkafa\" }}\n      className=\"w-2/3 space-y-6\"\n    >\n      <ReInput\n        label=\"Username\"\n        name=\"username\"\n        placeholder=\"username, email or phone number\"\n        description=\"This is your public display name.\"\n      />\n      <ReSubmit>\n        {(isSubmitting) => <>{isSubmitting ? \"Submitting ... \" : \"Submit\"}</>}\n      </ReSubmit>\n    </ReForm>\n  )\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

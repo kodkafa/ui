@@ -218,7 +218,9 @@ function BlockViewerToolbar() {
             }}
           >
             {isCopied ? <Check /> : <Terminal />}
-            <span className="hidden lg:inline">npx kodkafa add {item.name}</span>
+            <span className="hidden lg:inline">
+              npx kodkafa add {item.name}
+            </span>
           </Button>
         </div>
         <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />

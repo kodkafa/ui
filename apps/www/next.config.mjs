@@ -25,12 +25,22 @@ const nextConfig = {
     return [
       {
         source: "/components",
-        destination: "/docs/components/accordion",
+        destination: "/docs/components/reform/re-form",
         permanent: true,
       },
       {
         source: "/docs/components",
-        destination: "/docs/components/accordion",
+        destination: "/docs/components/reform/re-form",
+        permanent: true,
+      },
+      {
+        source: "/docs/components/reform",
+        destination: "/docs/components/reform/re-form",
+        permanent: true,
+      },
+      {
+        source: "/reform",
+        destination: "/docs/components/reform/re-form",
         permanent: true,
       },
       {

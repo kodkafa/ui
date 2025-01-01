@@ -22,7 +22,7 @@ async function main() {
     )
 
   program
-    .addCommand(init)
+    // .addCommand(init)
     .addCommand(add)
     .addCommand(diff)
     .addCommand(migrate)

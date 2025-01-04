@@ -69,6 +69,171 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "re-input-otp": {
+      name: "re-input-otp",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-input-otp.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-input-otp.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-group": {
+      name: "re-input-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form","re-input"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-input-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-input-group.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-password": {
+      name: "re-password",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form","re-input-group"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-password.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-password.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-select": {
+      name: "re-select",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-select.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox": {
+      name: "re-checkbox",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-checkbox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-checkbox.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox-group": {
+      name: "re-checkbox-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form","re-checkbox"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-checkbox-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-checkbox-group.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-combobox": {
+      name: "re-combobox",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-combobox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-combobox.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-radio-group": {
+      name: "re-radio-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-radio-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-radio-group.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-switch": {
+      name: "re-switch",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-switch.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-switch.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-slider": {
+      name: "re-slider",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-slider.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-slider.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-textarea": {
+      name: "re-textarea",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/new-york/ui/reform/re-textarea.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/ui/reform/re-textarea.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "sidebar-01": {
       name: "sidebar-01",
       description: "A simple sidebar with navigation grouped by section.",
@@ -2495,6 +2660,261 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "re-form-all": {
+      name: "re-form-all",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-form-all.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-form-all.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-form-login": {
+      name: "re-form-login",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input","re-password","re-checkbox","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-form-login.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-form-login.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-form-register": {
+      name: "re-form-register",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input","re-input-group","re-password","re-checkbox","re-switch","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-form-register.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-form-register.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-group-demo": {
+      name: "re-input-group-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input-group","re-input","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-input-group-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-input-group-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-password-demo": {
+      name: "re-password-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-password","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-password-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-password-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-otp-demo": {
+      name: "re-input-otp-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input-otp","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-input-otp-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-input-otp-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-otp-example": {
+      name: "re-input-otp-example",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input-otp","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-input-otp-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-input-otp-example.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-switch-demo": {
+      name: "re-switch-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-switch","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-switch-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-switch-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox-demo": {
+      name: "re-checkbox-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-checkbox","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-checkbox-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-checkbox-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox-group-demo": {
+      name: "re-checkbox-group-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-checkbox-group","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-checkbox-group-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-checkbox-group-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox-group-example": {
+      name: "re-checkbox-group-example",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-checkbox-group","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-checkbox-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-checkbox-group-example.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-radio-group-demo": {
+      name: "re-radio-group-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-radio-group","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-radio-group-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-radio-group-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-radio-group-example": {
+      name: "re-radio-group-example",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-radio-group","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-radio-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-radio-group-example.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-select-demo": {
+      name: "re-select-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-select","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-select-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-select-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-combobox-demo": {
+      name: "re-combobox-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-combobox","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-combobox-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-combobox-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-slider-demo": {
+      name: "re-slider-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-slider","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-slider-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-slider-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-textarea-demo": {
+      name: "re-textarea-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-textarea","re-submit"],
+      files: [{
+        path: "registry/new-york/examples/reform/re-textarea-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/examples/reform/re-textarea-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
   },  "default": {
     "re-form": {
       name: "re-form",
@@ -2557,6 +2977,171 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/reform/re-submit.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-otp": {
+      name: "re-input-otp",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/default/ui/reform/re-input-otp.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-input-otp.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-group": {
+      name: "re-input-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form","re-input"],
+      files: [{
+        path: "registry/default/ui/reform/re-input-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-input-group.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-password": {
+      name: "re-password",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form","re-input-group"],
+      files: [{
+        path: "registry/default/ui/reform/re-password.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-password.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-select": {
+      name: "re-select",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/default/ui/reform/re-select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-select.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox": {
+      name: "re-checkbox",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/default/ui/reform/re-checkbox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-checkbox.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox-group": {
+      name: "re-checkbox-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form","re-checkbox"],
+      files: [{
+        path: "registry/default/ui/reform/re-checkbox-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-checkbox-group.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-combobox": {
+      name: "re-combobox",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/default/ui/reform/re-combobox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-combobox.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-radio-group": {
+      name: "re-radio-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/default/ui/reform/re-radio-group.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-radio-group.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-switch": {
+      name: "re-switch",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/default/ui/reform/re-switch.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-switch.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-slider": {
+      name: "re-slider",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/default/ui/reform/re-slider.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-slider.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-textarea": {
+      name: "re-textarea",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["re-form"],
+      files: [{
+        path: "registry/default/ui/reform/re-textarea.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/reform/re-textarea.tsx")),
       source: "",
       meta: undefined,
     },
@@ -4983,6 +5568,261 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/reform/re-submit-disabled.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-form-all": {
+      name: "re-form-all",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-form-all.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-form-all.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-form-login": {
+      name: "re-form-login",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input","re-password","re-checkbox","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-form-login.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-form-login.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-form-register": {
+      name: "re-form-register",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input","re-input-group","re-password","re-checkbox","re-switch","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-form-register.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-form-register.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-group-demo": {
+      name: "re-input-group-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input-group","re-input","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-input-group-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-input-group-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-password-demo": {
+      name: "re-password-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-password","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-password-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-password-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-otp-demo": {
+      name: "re-input-otp-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input-otp","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-input-otp-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-input-otp-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-input-otp-example": {
+      name: "re-input-otp-example",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-input-otp","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-input-otp-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-input-otp-example.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-switch-demo": {
+      name: "re-switch-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-switch","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-switch-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-switch-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox-demo": {
+      name: "re-checkbox-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-checkbox","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-checkbox-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-checkbox-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox-group-demo": {
+      name: "re-checkbox-group-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-checkbox-group","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-checkbox-group-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-checkbox-group-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-checkbox-group-example": {
+      name: "re-checkbox-group-example",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-checkbox-group","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-checkbox-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-checkbox-group-example.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-radio-group-demo": {
+      name: "re-radio-group-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-radio-group","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-radio-group-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-radio-group-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-radio-group-example": {
+      name: "re-radio-group-example",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-radio-group","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-radio-group-example.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-radio-group-example.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-select-demo": {
+      name: "re-select-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-select","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-select-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-select-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-combobox-demo": {
+      name: "re-combobox-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-combobox","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-combobox-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-combobox-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-slider-demo": {
+      name: "re-slider-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-slider","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-slider-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-slider-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "re-textarea-demo": {
+      name: "re-textarea-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["re-form","re-textarea","re-submit"],
+      files: [{
+        path: "registry/default/examples/reform/re-textarea-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/reform/re-textarea-demo.tsx")),
       source: "",
       meta: undefined,
     },

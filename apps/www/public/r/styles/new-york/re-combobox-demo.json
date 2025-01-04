@@ -1,0 +1,17 @@
+{
+  "name": "re-combobox-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "re-form",
+    "re-combobox",
+    "re-submit"
+  ],
+  "files": [
+    {
+      "path": "examples/reform/re-combobox-demo.tsx",
+      "content": "\"use client\"\n\nimport { z } from \"zod\"\n\nimport { toast } from \"@/registry/new-york/hooks/use-toast\"\nimport { ReCombobox } from \"@/registry/new-york/ui/reform/re-combobox\"\nimport { ReForm } from \"@/registry/new-york/ui/reform/re-form\"\nimport { ReSubmit } from \"@/registry/new-york/ui/reform/re-submit\"\n\nconst formSchema = z.object({\n  input: z.string({\n    required_error: \"You have to select at least one item.\",\n  }),\n})\ntype FormData = z.infer<typeof formSchema>\n\nconst options = [\n  { label: \"Option 1\", value: \"option1\" },\n  { label: \"Option 2\", value: \"option2\" },\n  { label: \"Option 3\", value: \"option3\" },\n  { label: \"Option 4\", value: \"option4\" },\n  { label: \"Option 5\", value: \"option5\" },\n  { label: \"Option 6\", value: \"option6\" },\n  { label: \"Option 7\", value: \"option7\" },\n  { label: \"Option 8\", value: \"option8\" },\n  { label: \"Option 9\", value: \"option9\" },\n  { label: \"Option 10\", value: \"option10\" },\n]\n\nexport default function FormComponent() {\n  const handleSubmit = (data: FormData) => {\n    toast({\n      title: \"You submitted the following values:\",\n      description: (\n        <pre className=\"mt-2 w-[340px] rounded-md bg-slate-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <ReForm\n      schema={formSchema}\n      onSubmit={handleSubmit}\n      defaultValues={{ input: \"option2\" }}\n      className=\"w-2/3 space-y-4 gap-0\"\n    >\n      <ReCombobox\n        width=\"w-full\"\n        label=\"Combobox\"\n        name=\"input\"\n        options={options}\n        description=\"You have to select one item.\"\n      />\n      <ReSubmit>Send</ReSubmit>\n    </ReForm>\n  )\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

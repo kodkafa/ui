@@ -1,0 +1,16 @@
+{
+  "name": "re-slider",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-slider.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as SliderPrimitive from \"@radix-ui/react-slider\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/new-york/ui/form\"\nimport { Slider } from \"@/registry/new-york/ui/slider\"\n\nimport { ReFormFieldProps } from \"./re-form\"\n\nexport type Props = {\n  className?: string\n  name: string\n  label?: string\n  description?: string\n}\n\nconst ReSlider = React.forwardRef<\n  React.ElementRef<typeof SliderPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root> &\n    ReFormFieldProps & {\n      step?: number\n      min?: number\n      max?: number\n      defaultValue?: number[]\n    }\n>(\n  (\n    {\n      className,\n      name,\n      label,\n      description,\n      step = 1,\n      min = 0,\n      max = 100,\n      defaultValue = [0],\n      ...props\n    },\n    _\n  ) => {\n    const form = useFormContext()\n\n    return (\n      <FormField\n        control={form.control}\n        name={name}\n        render={({ field }) => (\n          <FormItem className={className}>\n            {label && (\n              <FormLabel>\n                {label} ({field.value})\n              </FormLabel>\n            )}\n            <FormControl>\n              <Slider\n                {...props}\n                step={step}\n                min={min}\n                max={max}\n                defaultValue={defaultValue}\n                onValueChange={field.onChange}\n              />\n            </FormControl>\n            {description && <FormDescription>{description}</FormDescription>}\n            <FormMessage className=\"reform-message text-xs\" />\n          </FormItem>\n        )}\n      />\n    )\n  }\n)\n\nReSlider.displayName = \"ReSlider\"\nexport { ReSlider }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

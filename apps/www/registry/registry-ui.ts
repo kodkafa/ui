@@ -646,13 +646,7 @@ export const ui: Registry = [
   {
     name: "re-input",
     type: "registry:ui",
-    dependencies: [
-      "@radix-ui/react-label",
-      "@radix-ui/react-slot",
-      "@hookform/resolvers",
-      "zod",
-      "react-hook-form",
-    ],
+    dependencies: [],
     registryDependencies: ["re-form", "re-submit"],
     files: [
       {
@@ -664,17 +658,144 @@ export const ui: Registry = [
   {
     name: "re-submit",
     type: "registry:ui",
-    dependencies: [
-      "@radix-ui/react-label",
-      "@radix-ui/react-slot",
-      "@hookform/resolvers",
-      "zod",
-      "react-hook-form",
-    ],
+    dependencies: [],
     registryDependencies: ["re-form", "re-input"],
     files: [
       {
         path: "ui/reform/re-submit.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+
+  {
+    name: "re-input-otp",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form"],
+    files: [
+      {
+        path: "ui/reform/re-input-otp.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-input-group",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form", "re-input"],
+    files: [
+      {
+        path: "ui/reform/re-input-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-password",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form", "re-input-group"],
+    files: [
+      {
+        path: "ui/reform/re-password.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-select",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form"],
+    files: [
+      {
+        path: "ui/reform/re-select.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-checkbox",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form"],
+    files: [
+      {
+        path: "ui/reform/re-checkbox.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-checkbox-group",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form", "re-checkbox"],
+    files: [
+      {
+        path: "ui/reform/re-checkbox-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-combobox",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form"],
+    files: [
+      {
+        path: "ui/reform/re-combobox.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-radio-group",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form"],
+    files: [
+      {
+        path: "ui/reform/re-radio-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-switch",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form"],
+    files: [
+      {
+        path: "ui/reform/re-switch.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-slider",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form"],
+    files: [
+      {
+        path: "ui/reform/re-slider.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "re-textarea",
+    type: "registry:ui",
+    dependencies: [],
+    registryDependencies: ["re-form"],
+    files: [
+      {
+        path: "ui/reform/re-textarea.tsx",
         type: "registry:ui",
       },
     ],

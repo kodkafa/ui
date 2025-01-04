@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/reform/re-input-demo.tsx",
-      "content": "import { z } from \"zod\"\n\nimport { ReForm } from \"@/registry/new-york/ui/reform/re-form\"\nimport { ReInput } from \"@/registry/new-york/ui/reform/re-input\"\n\nexport default function ReInputDemo() {\n  const formSchema = z.object({\n    email: z.string().email().min(8, {\n      message: \"Email must be at least 8 characters.\",\n    }),\n  })\n  return (\n    <ReForm schema={formSchema}>\n      <ReInput\n        type=\"email\"\n        name=\"email\"\n        label=\"Email\"\n        placeholder=\"Email\"\n        description=\"Descriptive text here...\"\n      />\n    </ReForm>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { z } from \"zod\"\n\nimport { ReForm } from \"@/registry/new-york/ui/reform/re-form\"\nimport { ReInput } from \"@/registry/new-york/ui/reform/re-input\"\n\nexport default function ReInputDemo() {\n  const formSchema = z.object({\n    email: z.string().email().min(8, {\n      message: \"Email must be at least 8 characters.\",\n    }),\n  })\n  return (\n    <ReForm schema={formSchema}>\n      <ReInput\n        type=\"email\"\n        name=\"email\"\n        label=\"Email\"\n        placeholder=\"Email\"\n        description=\"Descriptive text here...\"\n      />\n    </ReForm>\n  )\n}\n",
       "type": "registry:example",
       "target": ""
     }

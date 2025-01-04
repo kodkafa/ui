@@ -1,0 +1,16 @@
+{
+  "name": "re-radio-group",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-radio-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as RadioGroupPrimitive from \"@radix-ui/react-radio-group\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport { cn } from \"@/registry/new-york/lib/utils\"\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/new-york/ui/form\"\nimport { RadioGroup, RadioGroupItem } from \"@/registry/new-york/ui/radio-group\"\nimport { ReFormFieldProps } from \"@/registry/new-york/ui/reform/re-form\"\n\nconst ReRadioGroup = React.forwardRef<\n  React.ElementRef<typeof RadioGroupPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> &\n    ReFormFieldProps & {\n      options: {\n        label: string | React.ReactNode\n        value: string\n      }[]\n    }\n>(({ className, name, label, description, options = [], ...props }, ref) => {\n  const form = useFormContext()\n\n  return (\n    <FormField\n      control={form.control}\n      name={name}\n      render={({ field }) => (\n        <FormItem>\n          {label && <FormLabel>{label}</FormLabel>}\n          <FormControl>\n            <RadioGroup\n              ref={ref}\n              {...props}\n              onValueChange={field.onChange}\n              defaultValue={field.value}\n              className={cn(\"flex flex-col gap-2\", className)}\n            >\n              {options.map((x) => (\n                <FormItem\n                  key={x.value}\n                  className=\"flex items-center space-x-3 space-y-0\"\n                >\n                  <FormControl>\n                    <RadioGroupItem value={x.value} />\n                  </FormControl>\n                  <FormLabel className=\"font-normal\">{x.label}</FormLabel>\n                </FormItem>\n              ))}\n            </RadioGroup>\n          </FormControl>\n          {description && <FormDescription>{description}</FormDescription>}\n          <FormMessage className=\"reform-message text-xs\" />\n        </FormItem>\n      )}\n    />\n  )\n})\n\nReRadioGroup.displayName = \"ReRadioGroup\"\nexport { ReRadioGroup }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

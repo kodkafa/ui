@@ -1,29 +1,33 @@
+import * as React from "react"
 import { ReactElement, ReactNode } from "react"
 import { useFormContext } from "react-hook-form"
 
+import { cn } from "@/registry/default/lib/utils"
 import { Button, ButtonProps } from "@/registry/default/ui/button"
 
-export const ReSubmit = ({
-  children,
-  className = "block w-full",
-  type = "submit",
-  ...props
-}: Omit<ButtonProps, "children"> & {
-  children: ReactNode | ((isSubmitting: boolean) => ReactElement)
-}) => {
+type Props = Omit<ButtonProps, "children">
+
+const ReSubmit = React.forwardRef<
+  HTMLButtonElement,
+  Props & {
+    children: ReactNode | ((isSubmitting: boolean) => ReactElement)
+  }
+>(({ className, children, ...props }, ref) => {
   const {
     formState: { isSubmitting },
   } = useFormContext()
-
-  console.log({ isSubmitting })
   return (
     <Button
-      type={type}
-      className={className}
+      ref={ref}
+      type="submit"
+      className={cn("block w-full", className)}
       disabled={isSubmitting}
       {...props}
     >
       {typeof children === "function" ? children(isSubmitting) : children}
     </Button>
   )
-}
+})
+
+ReSubmit.displayName = "ReSubmit"
+export { ReSubmit }

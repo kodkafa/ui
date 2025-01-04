@@ -1,0 +1,17 @@
+{
+  "name": "re-checkbox-group",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form",
+    "re-checkbox"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-checkbox-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { ReactNode } from \"react\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport { cn } from \"@/registry/default/lib/utils\"\nimport { Checkbox } from \"@/registry/default/ui/checkbox\"\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/default/ui/form\"\nimport { ReFormFieldProps } from \"@/registry/default/ui/reform/re-form\"\n\nconst ReCheckboxGroup = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<\"div\"> &\n    ReFormFieldProps & {\n      options: {\n        label: string | ReactNode\n        value: string\n      }[]\n    }\n>(({ className, name, label, description, options, ...props }, _) => {\n  const form = useFormContext()\n\n  return (\n    <FormField\n      control={form.control}\n      name={name}\n      render={() => (\n        <FormItem {...props}>\n          {label && <FormLabel>{label}</FormLabel>}\n          <div className={cn(\"flex flex-col gap-2\", className)}>\n            {options.map((x: { label: string | ReactNode; value: string }) => (\n              <FormField\n                key={x.value}\n                control={form.control}\n                name={name}\n                render={({ field }) => {\n                  return (\n                    <FormItem\n                      key={x.value}\n                      className=\"flex flex-row items-start space-x-3 space-y-0\"\n                    >\n                      <FormControl>\n                        <Checkbox\n                          checked={field.value?.includes(x.value)}\n                          onCheckedChange={(checked) => {\n                            return checked\n                              ? field.onChange([\n                                  ...(field.value || []),\n                                  x.value,\n                                ])\n                              : field.onChange(\n                                  field.value?.filter(\n                                    (value: string) => value !== x.value\n                                  )\n                                )\n                          }}\n                        />\n                      </FormControl>\n                      <FormLabel className=\"font-normal\">{x.label}</FormLabel>\n                    </FormItem>\n                  )\n                }}\n              />\n            ))}\n          </div>\n          {description && <FormDescription>{description}</FormDescription>}\n          <FormMessage className=\"reform-message text-xs\" />\n        </FormItem>\n      )}\n    />\n  )\n})\n\nReCheckboxGroup.displayName = \"ReCheckboxGroup\"\nexport { ReCheckboxGroup }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "re-textarea",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-textarea.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { InputHTMLAttributes, TextareaHTMLAttributes } from \"react\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport { cn } from \"@/registry/default/lib/utils\"\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/default/ui/form\"\nimport { ReFormFieldProps } from \"@/registry/default/ui/reform/re-form\"\nimport { Textarea } from \"@/registry/default/ui/textarea\"\n\nexport type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {\n  className?: string\n  name: string\n  label?: string\n  description?: string\n}\n\nconst ReTextarea = React.forwardRef<\n  HTMLTextAreaElement,\n  React.ComponentProps<\"textarea\"> & ReFormFieldProps\n>(({ className, name, label, description, ...props }, _) => {\n  const form = useFormContext()\n\n  return (\n    <FormField\n      defaultValue={\"\"}\n      control={form.control}\n      name={name}\n      render={({ field }) => (\n        <FormItem className={className}>\n          {label && <FormLabel>{label}</FormLabel>}\n          <FormControl>\n            <Textarea\n              className={cn(\"resize-none\", className)}\n              {...props}\n              {...field}\n            />\n          </FormControl>\n          {description && <FormDescription>{description}</FormDescription>}\n          <FormMessage className=\"reform-message text-xs\" />\n        </FormItem>\n      )}\n    />\n  )\n})\n\nReTextarea.displayName = \"ReTextarea\"\nexport { ReTextarea }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

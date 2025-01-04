@@ -1689,4 +1689,211 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "re-form-all",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-input", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-form-all.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+
+  {
+    name: "re-form-login",
+    type: "registry:example",
+    registryDependencies: [
+      "re-form",
+      "re-input",
+      "re-password",
+      "re-checkbox",
+      "re-submit",
+    ],
+    files: [
+      {
+        path: "examples/reform/re-form-login.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-form-register",
+    type: "registry:example",
+    registryDependencies: [
+      "re-form",
+      "re-input",
+      "re-input-group",
+      "re-password",
+      "re-checkbox",
+      "re-switch",
+      "re-submit",
+    ],
+    files: [
+      {
+        path: "examples/reform/re-form-register.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-input-group-demo",
+    type: "registry:example",
+    registryDependencies: [
+      "re-form",
+      "re-input-group",
+      "re-input",
+      "re-submit",
+    ],
+    files: [
+      {
+        path: "examples/reform/re-input-group-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-password-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-password", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-password-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-input-otp-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-input-otp", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-input-otp-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-input-otp-example",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-input-otp", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-input-otp-example.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-switch-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-switch", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-switch-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-checkbox-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-checkbox", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-checkbox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-checkbox-group-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-checkbox-group", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-checkbox-group-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-checkbox-group-example",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-checkbox-group", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-checkbox-group-example.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-radio-group-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-radio-group", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-radio-group-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-radio-group-example",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-radio-group", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-radio-group-example.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-select-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-select", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-select-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-combobox-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-combobox", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-combobox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-slider-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-slider", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-slider-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "re-textarea-demo",
+    type: "registry:example",
+    registryDependencies: ["re-form", "re-textarea", "re-submit"],
+    files: [
+      {
+        path: "examples/reform/re-textarea-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

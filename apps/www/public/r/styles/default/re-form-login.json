@@ -1,0 +1,19 @@
+{
+  "name": "re-form-login",
+  "type": "registry:example",
+  "registryDependencies": [
+    "re-form",
+    "re-input",
+    "re-password",
+    "re-checkbox",
+    "re-submit"
+  ],
+  "files": [
+    {
+      "path": "examples/reform/re-form-login.tsx",
+      "content": "\"use client\"\n\nimport { z } from \"zod\"\n\nimport { toast } from \"@/registry/default/hooks/use-toast\"\nimport { ReCheckbox } from \"@/registry/default/ui/reform/re-checkbox\"\nimport { ReForm } from \"@/registry/default/ui/reform/re-form\"\nimport { ReInput } from \"@/registry/default/ui/reform/re-input\"\nimport { RePassword } from \"@/registry/default/ui/reform/re-password\"\nimport { ReSubmit } from \"@/registry/default/ui/reform/re-submit\"\n\nconst formSchema = z.object({\n  username: z.string().min(2, {\n    message: \"Username must be at least 2 characters.\",\n  }),\n  password: z.string().min(8, {\n    message: \"Password must be at least 8 characters.\",\n  }),\n  rememberMe: z.boolean(),\n})\ntype FormData = z.infer<typeof formSchema>\n\nexport default function FormComponent() {\n  const handleSubmit = (data: FormData) => {\n    toast({\n      title: \"You submitted the following values:\",\n      description: (\n        <pre className=\"mt-2 w-[340px] rounded-md bg-slate-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <ReForm\n      schema={formSchema}\n      onSubmit={handleSubmit}\n      defaultValues={{ username: \"\", password: \"\", rememberMe: false }}\n      className=\"w-2/3 space-y-4 gap-0\"\n    >\n      <ReInput\n        label=\"Username\"\n        name=\"username\"\n        placeholder=\"username, email or phone number\"\n      />\n      <RePassword label=\"Password\" name=\"password\" placeholder=\"password\" />\n      <ReCheckbox\n        label=\"Remember me\"\n        name=\"rememberMe\"\n        description=\"Only if you trust this device, confirm.\"\n      />\n      <ReSubmit>Submit</ReSubmit>\n    </ReForm>\n  )\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

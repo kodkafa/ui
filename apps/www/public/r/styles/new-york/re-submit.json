@@ -1,13 +1,7 @@
 {
   "name": "re-submit",
   "type": "registry:ui",
-  "dependencies": [
-    "@radix-ui/react-label",
-    "@radix-ui/react-slot",
-    "@hookform/resolvers",
-    "zod",
-    "react-hook-form"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "re-form",
     "re-input"
@@ -15,7 +9,7 @@
   "files": [
     {
       "path": "ui/reform/re-submit.tsx",
-      "content": "import { Button, ButtonProps } from \"@/registry/new-york/ui/button\"\n\nexport const ReSubmit = ({\n  children,\n  className = \"block w-full\",\n  type = \"submit\",\n  ...props\n}: ButtonProps) => {\n  return (\n    <Button type={type} className={className} {...props}>\n      {children}\n    </Button>\n  )\n}\n",
+      "content": "import * as React from \"react\"\nimport { ReactElement, ReactNode } from \"react\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport { cn } from \"@/registry/new-york/lib/utils\"\nimport { Button, ButtonProps } from \"@/registry/new-york/ui/button\"\n\ntype Props = Omit<ButtonProps, \"children\">\n\nconst ReSubmit = React.forwardRef<\n  HTMLButtonElement,\n  Props & {\n    children: ReactNode | ((isSubmitting: boolean) => ReactElement)\n  }\n>(({ className, children, ...props }, ref) => {\n  const {\n    formState: { isSubmitting },\n  } = useFormContext()\n  return (\n    <Button\n      ref={ref}\n      type=\"submit\"\n      className={cn(\"block w-full\", className)}\n      disabled={isSubmitting}\n      {...props}\n    >\n      {typeof children === \"function\" ? children(isSubmitting) : children}\n    </Button>\n  )\n})\n\nReSubmit.displayName = \"ReSubmit\"\nexport { ReSubmit }\n",
       "type": "registry:ui",
       "target": ""
     }

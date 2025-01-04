@@ -1,0 +1,17 @@
+{
+  "name": "re-input-group",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form",
+    "re-input"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-input-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { useEffect, useRef, useState } from \"react\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport { cn } from \"@/registry/default/lib/utils\"\nimport { FormDescription, FormItem } from \"@/registry/default/ui/form\"\nimport { Label } from \"@/registry/default/ui/label\"\nimport { ReFormFieldProps } from \"@/registry/default/ui/reform/re-form\"\n\nconst ReInputGroup = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<\"div\"> &\n    Omit<ReFormFieldProps, \"name\"> & {\n      children: React.ReactNode\n    }\n>(({ children, className, label, description, disabled, ...props }, _) => {\n  const ref = useRef<HTMLDivElement>(null)\n  const { formState } = useFormContext()\n  const [errors, setErrors] = useState<string[]>([])\n\n  useEffect(() => {\n    if (ref.current && Object.keys(formState.errors).length) {\n      setErrors(\n        Array.from(ref.current?.querySelectorAll(\".reform-message\")).map(\n          (i) => i.innerHTML\n        )\n      )\n    }\n  }, [formState])\n\n  return (\n    <FormItem className={className}>\n      {label && (\n        <Label className={cn(errors?.length ? \"text-destructive\" : \"\")}>\n          {label}\n        </Label>\n      )}\n\n      <div\n        ref={ref}\n        {...props}\n        // className={`reform-input-group group ${className} ${\n        //   disabled ? \"disabled\" : \"\"\n        // }`}\n        // className=\"[&_input]:border-0 [&_button]:max-w-xs\"\n        className={cn(\n          \"group reform-input-group overflow-hidden flex items-center h-10 w-full rounded-md border border-input bg-transparent shadow-sm transition-colors disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",\n          \"[&_input]:border-0 [&_input]:rounded-none [&_button]:border-0 [&_button]:rounded-none\",\n          \"focus:[&_input]:ring-0 focus:[&_input]:ring-offset-0 focus:[&_button]:ring-0 focus:[&_button]:ring-offset-0\",\n          \"ring-offset-2 has-[:focus]:ring-2 has-[:focus]:ring-ring\",\n          \"[&_.reform-message]:hidden\",\n          className\n        )}\n      >\n        {children}\n      </div>\n      {description && <FormDescription>{description}</FormDescription>}\n\n      {errors?.map((i, k) => (\n        <p key={k} className=\"font-medium text-destructive text-xs\">\n          {i}\n        </p>\n      ))}\n    </FormItem>\n  )\n})\n\nReInputGroup.displayName = \"ReInputGroup\"\nexport { ReInputGroup }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

@@ -1,24 +1,47 @@
+"use client"
+
+import { wait } from "next/dist/lib/wait"
 import { z } from "zod"
 
+import { toast } from "@/registry/new-york/hooks/use-toast"
 import { ReForm } from "@/registry/new-york/ui/reform/re-form"
 import { ReInput } from "@/registry/new-york/ui/reform/re-input"
+import { ReSubmit } from "@/registry/new-york/ui/reform/re-submit"
 
-export default function ReInputDisabled() {
-  const formSchema = z.object({
-    email: z.string().email().min(8, {
-      message: "Email must be at least 8 characters.",
-    }),
-  })
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+})
+type FormData = z.infer<typeof formSchema>
+
+export default function ReSubmitDisabled() {
+  const handleSubmit = async (data: FormData) => {
+    await wait(2000) // Wait for 2 seconds
+    toast({
+      title: "You submitted the following values:",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    })
+  }
+
   return (
-    <ReForm schema={formSchema}>
+    <ReForm
+      schema={formSchema}
+      onSubmit={handleSubmit}
+      defaultValues={{ username: "kodkafa" }}
+      className="w-2/3 space-y-6"
+    >
       <ReInput
-        type="email"
-        name="email"
-        label="Email"
-        placeholder="Email"
-        description="Descriptive text here..."
-        disabled
+        label="Username"
+        name="username"
+        placeholder="username, email or phone number"
+        description="This is your public display name."
       />
+      <ReSubmit disabled>Submit</ReSubmit>
     </ReForm>
   )
 }

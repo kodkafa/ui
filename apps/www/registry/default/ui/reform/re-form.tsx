@@ -1,45 +1,47 @@
 "use client"
 
-import { ReactNode, useState } from "react"
+import * as React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { DeepPartial, Resolver, useForm, useFormContext } from "react-hook-form"
+import { DeepPartial, Resolver, useForm } from "react-hook-form"
 import { TypeOf, ZodSchema, z } from "zod"
 
 import { errorHandler } from "@/registry/default/lib/error"
+import { cn } from "@/registry/default/lib/utils"
 import { Form } from "@/registry/default/ui/form"
 
-export type ReformSubmitHandler<T extends ZodSchema> = (
+type ReFormFieldProps = {
+  name: string
+  label?: string
+  description?: string | React.ReactNode
+  disabled?: boolean
+}
+
+type ReFormSubmitHandler<T extends ZodSchema> = (
   data: z.infer<T>
 ) => Promise<boolean | void> | boolean | void
 
-export type Props<T extends ZodSchema> = {
+type Props<T extends ZodSchema> = {
   schema: T
   resolver?: Resolver
-  onSubmit?: ReformSubmitHandler<T>
-  onChange?: ReformSubmitHandler<T>
+  onSubmit?: ReFormSubmitHandler<T>
+  onChange?: ReFormSubmitHandler<T>
   defaultValues?: DeepPartial<TypeOf<T>> | undefined
   className?: string
-  children?: ReactNode | ReactNode[]
+  children?: React.ReactNode | React.ReactNode[]
   autoComplete?: "on" | "off"
   novalidate?: string
   disabled?: boolean
 }
 
-// !IMPORTANT Dependency:
-// pnpm dlx shadcn@latest add form input button
-
-export const ReForm = <T extends ZodSchema>({
-  className = "flex flex-col gap-4",
+const ReForm = <T extends ZodSchema>({
+  className,
   schema,
   onSubmit,
   onChange,
   defaultValues,
   // disabled = false,
   children,
-}: // ...props
-Props<T>) => {
-  const [loading, setLoading] = useState(false)
-
+}: Props<T>) => {
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema as any),
     defaultValues,
@@ -48,13 +50,10 @@ Props<T>) => {
   })
 
   const handleSubmit = async (data: z.infer<typeof schema>) => {
-    setLoading(true)
     try {
       if (onSubmit && (await onSubmit(data))) form.reset(defaultValues)
     } catch (error) {
       errorHandler(error, form.setError)
-    } finally {
-      setLoading(false)
     }
   }
 
@@ -63,18 +62,18 @@ Props<T>) => {
       onChange(form.watch())
     }
   }
-  // ${disabled ? 'reform-disabled' : ''}
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
         onChange={handleFormChange}
-        className={`reform-form ${
-          loading ? "reform-loading" : ""
-        } ${className}`}
+        className={cn("reform-form flex flex-col gap-4", className)}
       >
         {children}
       </form>
     </Form>
   )
 }
+
+export { ReForm }
+export type { ReFormSubmitHandler, ReFormFieldProps }

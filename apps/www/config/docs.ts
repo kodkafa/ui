@@ -408,8 +408,64 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "ReInputGroup",
+          href: "/docs/components/reform/re-input-group",
+          items: [],
+        },
+        {
           title: "ReSubmit",
           href: "/docs/components/reform/re-submit",
+          items: [],
+        },
+
+        {
+          title: "ReSelect",
+          href: "/docs/components/reform/re-select",
+          items: [],
+        },
+        {
+          title: "ReCombobox",
+          href: "/docs/components/reform/re-combobox",
+          items: [],
+        },
+        {
+          title: "ReCheckbox",
+          href: "/docs/components/reform/re-checkbox",
+          items: [],
+        },
+        {
+          title: "ReCheckboxGroup",
+          href: "/docs/components/reform/re-checkbox-group",
+          items: [],
+        },
+        {
+          title: "ReRadioGroup",
+          href: "/docs/components/reform/re-radio-group",
+          items: [],
+        },
+        {
+          title: "ReSwitch",
+          href: "/docs/components/reform/re-switch",
+          items: [],
+        },
+        {
+          title: "ReSlider",
+          href: "/docs/components/reform/re-slider",
+          items: [],
+        },
+        {
+          title: "ReTextarea",
+          href: "/docs/components/reform/re-textarea",
+          items: [],
+        },
+        {
+          title: "RePassword",
+          href: "/docs/components/reform/re-password",
+          items: [],
+        },
+        {
+          title: "ReInputOTP",
+          href: "/docs/components/reform/re-input-otp",
           items: [],
         },
         // {

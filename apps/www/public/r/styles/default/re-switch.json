@@ -1,0 +1,16 @@
+{
+  "name": "re-switch",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-switch.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as SwitchPrimitives from \"@radix-ui/react-switch\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/default/ui/form\"\nimport { ReFormFieldProps } from \"@/registry/default/ui/reform/re-form\"\nimport { Switch } from \"@/registry/default/ui/switch\"\n\nconst ReSwitch = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitives.Root>,\n  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> &\n    ReFormFieldProps\n>(({ className, name, label, description, ...props }, ref) => {\n  const form = useFormContext()\n\n  return (\n    <FormField\n      control={form.control}\n      name={name}\n      defaultValue={false}\n      render={({ field }) => (\n        <FormItem>\n          <div\n            className={cn(\n              \"rounded-md border border-input bg-background px-3 py-2 text-base \",\n              \"border-input space-y-0 items-center flex gap-2\",\n              className\n            )}\n          >\n            <FormControl>\n              <Switch\n                ref={ref}\n                {...props}\n                checked={field.value}\n                onCheckedChange={field.onChange}\n              />\n            </FormControl>\n            <div className=\"grow grid gap-1.5 leading-none\">\n              {label && <FormLabel>{label}</FormLabel>}\n              {description && <FormDescription>{description}</FormDescription>}\n            </div>\n          </div>\n          <FormMessage className=\"reform-message text-xs\" />\n        </FormItem>\n      )}\n    />\n  )\n})\n\nReSwitch.displayName = \"ReSwitch\"\nexport { ReSwitch }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

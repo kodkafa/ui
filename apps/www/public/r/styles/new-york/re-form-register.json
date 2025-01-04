@@ -1,0 +1,21 @@
+{
+  "name": "re-form-register",
+  "type": "registry:example",
+  "registryDependencies": [
+    "re-form",
+    "re-input",
+    "re-input-group",
+    "re-password",
+    "re-checkbox",
+    "re-switch",
+    "re-submit"
+  ],
+  "files": [
+    {
+      "path": "examples/reform/re-form-register.tsx",
+      "content": "\"use client\"\n\nimport { z } from \"zod\"\n\nimport { toast } from \"@/registry/new-york/hooks/use-toast\"\nimport { Label } from \"@/registry/new-york/ui/label\"\nimport { ReCheckbox } from \"@/registry/new-york/ui/reform/re-checkbox\"\nimport { ReForm } from \"@/registry/new-york/ui/reform/re-form\"\nimport { ReInput } from \"@/registry/new-york/ui/reform/re-input\"\nimport { ReInputGroup } from \"@/registry/new-york/ui/reform/re-input-group\"\nimport { RePassword } from \"@/registry/new-york/ui/reform/re-password\"\nimport { ReSubmit } from \"@/registry/new-york/ui/reform/re-submit\"\nimport { ReSwitch } from \"@/registry/new-york/ui/reform/re-switch\"\n\nconst formSchema = z.object({\n  username: z.string().min(2, {\n    message: \"Username must be at least 2 characters.\",\n  }),\n  password: z.string().min(8, {\n    message: \"Password must be at least 8 characters.\",\n  }),\n  rememberMe: z.boolean(),\n})\ntype FormData = z.infer<typeof formSchema>\n\nexport default function FormComponent() {\n  const handleSubmit = (data: FormData) => {\n    toast({\n      title: \"You submitted the following values:\",\n      description: (\n        <pre className=\"mt-2 w-[340px] rounded-md bg-slate-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <ReForm\n      schema={formSchema}\n      onSubmit={handleSubmit}\n      defaultValues={{ username: \"\", password: \"\", rememberMe: false }}\n      className=\"w-2/3 space-y-4 gap-0\"\n    >\n      <div>\n        <Label>Full Name</Label>\n        <div className=\"grid grid-cols-2 gap-4\">\n          <ReInput name=\"firstName\" placeholder=\"First Name\" />\n          <ReInput name=\"lastName\" placeholder=\"Last Name\" />\n        </div>\n      </div>\n      <ReInput\n        label=\"Email\"\n        name=\"email\"\n        placeholder=\"joe@gmail.com\"\n        type=\"email\"\n      />\n      <ReInputGroup label=\"Username\">\n        <span className=\"p-3 bg-accent text-muted-foreground border-r\">@</span>\n        <ReInput name=\"username\" placeholder=\"joe\" />\n      </ReInputGroup>\n      <RePassword label=\"Password\" name=\"password\" placeholder=\"password\" />\n      <ReCheckbox\n        // label=\"Remember me\"\n        name=\"approve\"\n        description={\n          <span className=\"block -m-0.5\">\n            By creating an account, you agree to our <u>Terms of Service</u> and{\" \"}\n            <u>Privacy Policy</u>.\n          </span>\n        }\n      />\n      <ReSwitch\n        label=\"Newsletter Allowance\"\n        name=\"allowance\"\n        description=\"While confirming, we will send you newsletter to your email.\"\n      />\n      <ReSubmit>Create my account</ReSubmit>\n    </ReForm>\n  )\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

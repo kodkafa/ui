@@ -1,0 +1,16 @@
+{
+  "name": "re-input-otp",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-input-otp.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/default/ui/form\"\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from \"@/registry/default/ui/input-otp\"\nimport { ReFormFieldProps } from \"@/registry/default/ui/reform/re-form\"\n\nconst ReInputOTP = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentProps<\"div\"> & ReFormFieldProps & { pattern?: string }\n>(\n  (\n    { className, name, label, description, pattern = \"xxx-xxx\", ...props },\n    _\n  ) => {\n    const form = useFormContext()\n    const groups = pattern.split(\"-\")\n    const maxLength = pattern.replace(/-/g, \"\").length\n\n    return (\n      <FormField\n        control={form.control}\n        name={name}\n        render={({ field }) => (\n          <FormItem className={className} {...props}>\n            {label && <FormLabel>{label}</FormLabel>}\n            <FormControl>\n              <InputOTP maxLength={maxLength} {...field}>\n                {groups.map((x, i) => (\n                  <React.Fragment key={`group-${i}`}>\n                    <InputOTPGroup>\n                      {Array.from({ length: x.length }).map((_, j) => {\n                        const index = groups.slice(0, i).join(\"\").length + j\n                        return (\n                          <InputOTPSlot key={`slot-${index}`} index={index} />\n                        )\n                      })}\n                    </InputOTPGroup>\n                    {i < groups.length - 1 && <InputOTPSeparator />}\n                  </React.Fragment>\n                ))}\n              </InputOTP>\n            </FormControl>\n            {description && <FormDescription>{description}</FormDescription>}\n            <FormMessage className=\"reform-message text-xs\" />\n          </FormItem>\n        )}\n      />\n    )\n  }\n)\n\nReInputOTP.displayName = \"ReInputOTP\"\nexport { ReInputOTP }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

@@ -1,3 +1,6 @@
+"use client"
+
+import * as React from "react"
 import { HTMLAttributes } from "react"
 import { useFormContext } from "react-hook-form"
 
@@ -5,7 +8,12 @@ export type Props = HTMLAttributes<HTMLDivElement> & {
   name?: string
 }
 
-export const ReErrorArea = ({ name = "root", className, ...props }: Props) => {
+const ReErrorArea = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & {
+    name?: string
+  }
+>(({ className, name = "root", ...props }, ref) => {
   const {
     formState: { errors },
   } = useFormContext()
@@ -15,9 +23,9 @@ export const ReErrorArea = ({ name = "root", className, ...props }: Props) => {
       : errors[name]
 
   return (
-    <div className={`reform-errorarea ${className}`}>
+    <div ref={ref} className={`reform-errorarea ${className}`} {...props}>
       {error && (
-        <div className="reform-item-error">
+        <div className="text-destructive text-sm" aria-live="assertive">
           {Array.isArray(error) ? (
             <ul>
               {error.map((i, k) => (
@@ -31,4 +39,6 @@ export const ReErrorArea = ({ name = "root", className, ...props }: Props) => {
       )}
     </div>
   )
-}
+})
+
+export { ReErrorArea }

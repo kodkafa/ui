@@ -25,7 +25,7 @@ export default function ReFormError() {
       schema={formSchema}
       onSubmit={handleSubmit}
       defaultValues={{ username: "kodkafa" }}
-      className="w-2/3 space-y-6"
+      className="w-2/3"
     >
       <ReInput
         label="Username"

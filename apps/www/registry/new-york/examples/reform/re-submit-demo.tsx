@@ -1,5 +1,6 @@
 "use client"
 
+import { wait } from "next/dist/lib/wait"
 import { z } from "zod"
 
 import { toast } from "@/registry/new-york/hooks/use-toast"
@@ -14,8 +15,9 @@ const formSchema = z.object({
 })
 type FormData = z.infer<typeof formSchema>
 
-export default function InputForm() {
-  const handleSubmit = (data: FormData) => {
+export default function ReSubmitDemo() {
+  const handleSubmit = async (data: FormData) => {
+    await wait(2000) // Wait for 2 seconds
     toast({
       title: "You submitted the following values:",
       description: (
@@ -30,7 +32,7 @@ export default function InputForm() {
     <ReForm
       schema={formSchema}
       onSubmit={handleSubmit}
-      defaultValues={{ username: "" }}
+      defaultValues={{ username: "kodkafa" }}
       className="w-2/3 space-y-6"
     >
       <ReInput
@@ -39,7 +41,9 @@ export default function InputForm() {
         placeholder="username, email or phone number"
         description="This is your public display name."
       />
-      <ReSubmit>Submit</ReSubmit>
+      <ReSubmit>
+        {(isSubmitting) => <>{isSubmitting ? "Submitting ... " : "Submit"}</>}
+      </ReSubmit>
     </ReForm>
   )
 }

@@ -56,7 +56,7 @@ const handleSubmit: ReformSubmitHandler<FormType> = async (data) => {
   await mutation(data)
 }
 
-;<ReForm<FormType> schema={schema} onSubmit={handleSubmit}>
+return (<ReForm<FormType> schema={schema} onSubmit={handleSubmit}>
   <ReInput
     label="Username"
     name="username"
@@ -65,10 +65,15 @@ const handleSubmit: ReformSubmitHandler<FormType> = async (data) => {
   <RePassword label="Password" name="password" placeholder="password" />
   <ReErrorArea />
   <ReSubmit>Login</ReSubmit>
-</ReForm>
+</ReForm>)
 ```
 
 ## Installation
+
+#### Dependencies
+
+The ReForm is built using the `<Form />` from [shadcn/ui](https://ui.shadcn.com/docs/components/form).
+See installation instructions for the [Form](/docs/components/form#installation) component.
 
 <Tabs defaultValue="cli">
 
@@ -132,12 +137,11 @@ const formSchema = z.object({
 type FormType = z.infer<typeof formSchema>
 ```
 
-### Define a form
+### Define a schema
 
-```tsx showLineNumbers {14-19}
+```tsx showLineNumbers {5-9}
 "use client"
 
-import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 
 const formSchema = z.object({
@@ -145,6 +149,14 @@ const formSchema = z.object({
     message: "Username must be at least 2 characters.",
   }),
 })
+
+// ...
+```
+
+### Define a submit handler
+
+```tsx showLineNumbers {6-10}
+// ...
 type FormType = z.infer<typeof formSchema>
 
 export function LoginForm() {
@@ -161,26 +173,15 @@ export function LoginForm() {
 
 We can now use the `<ReForm />` components to build our form.
 
-```tsx showLineNumbers {7-17,28-50}
-"use client"
+```tsx showLineNumbers {2-4,10-18}
+// ...
+import { ReErrorArea, ReForm } from "@/components/ui/re-form"
+import { ReInput } from "@/components/ui/re-input"
+import { ReSubmit } from "@/components/ui/re-submit"
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-
-import { ReSubmit } from "@/components/ui/button"
-import { ReErrorArea, ReForm } from "@/components/ui/form"
-import { ReInput } from "@/components/ui/input"
-
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-})
-
+// ...
 export function LoginForm() {
   // ...
-
   return (
     <ReForm<FormType> schema={formSchema} onSubmit={handleSubmit}>
       <ReInput
@@ -210,13 +211,15 @@ That's it. You now have a fully accessible form that is type-safe with client-si
 
 ### Error
 
+You can use the `<ReErrorArea />` component to display error messages coming from the server.
+
 <ComponentPreview
   name="re-form-error"
   className="[&_input]:max-w-xs [&_button]:max-w-xs"
   description="ReForm error handling."
 />
 
-### Validation Error from Backend
+#### Validation Error from Backend
 
 <ComponentPreview
   name="re-form-error-validation"
@@ -226,14 +229,5 @@ That's it. You now have a fully accessible form that is type-safe with client-si
 
 See the following links for more examples on how to use the `<ReForm />` component with other components:
 
-[//]: # "- [Checkbox](/docs/components/checkbox#form)"
-[//]: # "- [Date Picker](/docs/components/date-picker#form)"
-
 - [ReInput](/docs/components/re-input#form)
 - [ReSubmit](/docs/components/re-submit#form)
-
-[//]: # "- [Radio Group](/docs/components/radio-group#form)"
-[//]: # "- [Select](/docs/components/select#form)"
-[//]: # "- [Switch](/docs/components/switch#form)"
-[//]: # "- [Textarea](/docs/components/textarea#form)"
-[//]: # "- [Combobox](/docs/components/combobox#form)"

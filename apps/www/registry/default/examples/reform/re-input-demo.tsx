@@ -1,3 +1,5 @@
+"use client"
+
 import { z } from "zod"
 
 import { ReForm } from "@/registry/default/ui/reform/re-form"

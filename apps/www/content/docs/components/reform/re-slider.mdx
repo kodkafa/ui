@@ -1,0 +1,40 @@
+---
+title: ReSlider
+description: A form slider component.
+component: true
+---
+
+<ComponentPreview
+  name="re-slider-demo"
+  className="[&_input]:max-w-xs [&_button]:max-w-xs [&_div.reform-input-group]:max-w-xs"
+  description="A form slider component."
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx kodkafa@latest add re-slider
+```
+
+</TabsContent>
+<TabsContent value="manual">
+  <Steps>
+    <Step>Copy and paste the following code into your project.</Step>
+      <ComponentSource name="re-slider" />
+    <Step>Update the import paths to match your project setup.</Step>
+  </Steps>
+</TabsContent>
+</Tabs>
+
+#### Dependencies
+
+The ReSlider is built using the `<Slider />` from [shadcn/ui](https://ui.shadcn.com/docs/components/slider).
+
+See installation instructions for the [Slider](/docs/components/slider#installation) component.

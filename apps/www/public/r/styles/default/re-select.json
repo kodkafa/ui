@@ -1,0 +1,16 @@
+{
+  "name": "re-select",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-select.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as SelectPrimitive from \"@radix-ui/react-select\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/default/ui/form\"\nimport { ReFormFieldProps } from \"@/registry/default/ui/reform/re-form\"\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/default/ui/select\"\n\nconst ReSelect = React.forwardRef<\n  React.ElementRef<typeof SelectPrimitive.Trigger>,\n  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> &\n    ReFormFieldProps & {\n      placeholder?: string\n      options: {\n        label: string | React.ReactNode\n        value: string\n      }[]\n    }\n>(\n  (\n    { name, label, description, placeholder = \"Select\", options, ...props },\n    ref\n  ) => {\n    const form = useFormContext()\n    if (!form)\n      return (\n        <div className=\"text-destructive text-sm\">Form context not found</div>\n      )\n\n    return (\n      <FormField\n        control={form.control}\n        name={name}\n        render={({ field }) => (\n          <FormItem>\n            {label && <FormLabel>{label}</FormLabel>}\n            <Select onValueChange={field.onChange} defaultValue={field.value}>\n              <FormControl>\n                <SelectTrigger ref={ref} {...props}>\n                  <SelectValue placeholder={field.value || placeholder} />\n                </SelectTrigger>\n              </FormControl>\n              <SelectContent>\n                {options.map((x) => (\n                  <SelectItem key={x.value} value={x.value}>\n                    {x.label}\n                  </SelectItem>\n                ))}\n              </SelectContent>\n            </Select>\n            {description && <FormDescription>{description}</FormDescription>}\n            <FormMessage className=\"reform-message text-xs\" />\n          </FormItem>\n        )}\n      />\n    )\n  }\n)\n\nReSelect.displayName = \"ReSelect\"\nexport { ReSelect }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

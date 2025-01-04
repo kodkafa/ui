@@ -14,7 +14,7 @@ const formSchema = z.object({
 })
 type FormData = z.infer<typeof formSchema>
 
-export default function InputForm() {
+export default function ReFormDemo() {
   const handleSubmit = (data: FormData) => {
     toast({
       title: "You submitted the following values:",

@@ -1,0 +1,46 @@
+---
+title: ReCheckbox
+description: A form checkbox component.
+component: true
+---
+
+<ComponentPreview
+  name="re-checkbox-demo"
+  className="[&_input]:max-w-xs [&_button]:max-w-xs [&_div.reform-input-group]:max-w-xs"
+  description="A form checkbox component."
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx kodkafa@latest add re-checkbox
+```
+
+</TabsContent>
+<TabsContent value="manual">
+  <Steps>
+    <Step>Copy and paste the following code into your project.</Step>
+      <ComponentSource name="re-checkbox" />
+    <Step>Update the import paths to match your project setup.</Step>
+  </Steps>
+</TabsContent>
+</Tabs>
+
+#### Dependencies
+
+The ReCheckbox is built using the `<Checkbox />` from [shadcn/ui](https://ui.shadcn.com/docs/components/checkbox).
+
+See installation instructions for the [Checkbox](/docs/components/checkbox#installation) component.
+
+## Examples
+
+### Checkbox
+
+<ComponentPreview name="re-form-login" description="A login form example." />

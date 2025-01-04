@@ -1,0 +1,17 @@
+{
+  "name": "re-select-demo ",
+  "type": "registry:example",
+  "registryDependencies": [
+    "re-form",
+    "re-select",
+    "re-submit"
+  ],
+  "files": [
+    {
+      "path": "examples/reform/re-select-demo.tsx",
+      "content": "\"use client\"\n\nimport { z } from \"zod\"\n\nimport { toast } from \"@/registry/default/hooks/use-toast\"\nimport { ReForm } from \"@/registry/default/ui/reform/re-form\"\nimport { ReSelect } from \"@/registry/default/ui/reform/re-select\"\nimport { ReSubmit } from \"@/registry/default/ui/reform/re-submit\"\n\nconst formSchema = z.object({\n  input: z.string({\n    required_error: \"You have to select at least one item.\",\n  }),\n})\ntype FormData = z.infer<typeof formSchema>\n\nconst options = [\n  { label: \"Option 1\", value: \"option1\" },\n  { label: \"Option 2\", value: \"option2\" },\n  { label: \"Option 3\", value: \"option3\" },\n]\n\nexport default function FormComponent() {\n  const handleSubmit = (data: FormData) => {\n    toast({\n      title: \"You submitted the following values:\",\n      description: (\n        <pre className=\"mt-2 w-[340px] rounded-md bg-slate-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <ReForm\n      schema={formSchema}\n      onSubmit={handleSubmit}\n      defaultValues={{ input: \"option2\" }}\n      className=\"w-2/3 space-y-4 gap-0\"\n    >\n      <ReSelect\n        label=\"Select\"\n        name=\"input\"\n        options={options}\n        description=\"You have to select one item.\"\n      />\n      <ReSubmit>Send</ReSubmit>\n    </ReForm>\n  )\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

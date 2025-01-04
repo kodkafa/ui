@@ -1,3 +1,5 @@
+"use client"
+
 import { z } from "zod"
 
 import { ReForm } from "@/registry/new-york/ui/reform/re-form"

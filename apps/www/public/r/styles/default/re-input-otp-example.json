@@ -1,0 +1,17 @@
+{
+  "name": "re-input-otp-example",
+  "type": "registry:example",
+  "registryDependencies": [
+    "re-form",
+    "re-input-otp",
+    "re-submit"
+  ],
+  "files": [
+    {
+      "path": "examples/reform/re-input-otp-example.tsx",
+      "content": "\"use client\"\n\nimport { z } from \"zod\"\n\nimport { toast } from \"@/registry/default/hooks/use-toast\"\nimport { ReForm } from \"@/registry/default/ui/reform/re-form\"\nimport { ReInputOTP } from \"@/registry/default/ui/reform/re-input-otp\"\nimport { ReSubmit } from \"@/registry/default/ui/reform/re-submit\"\n\nconst formSchema = z.object({\n  input: z.string().regex(/^\\d{6}$/, {\n    message:\n      \"Invalid pattern. Must be in the format xxx-xxx(where x is a digit).\",\n  }),\n})\ntype FormData = z.infer<typeof formSchema>\n\nexport default function FormComponent() {\n  const handleSubmit = (data: FormData) => {\n    toast({\n      title: \"You submitted the following values:\",\n      description: (\n        <pre className=\"mt-2 w-[340px] rounded-md bg-slate-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <ReForm\n      schema={formSchema}\n      onSubmit={handleSubmit}\n      className=\"w-2/3 space-y-4 gap-0\"\n    >\n      <ReInputOTP\n        pattern=\"xxx-xxx\"\n        label=\"One Time Password\"\n        name=\"input\"\n        description=\"Enter your one time password.\"\n      />\n      <ReSubmit>Send</ReSubmit>\n    </ReForm>\n  )\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

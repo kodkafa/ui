@@ -1,0 +1,16 @@
+{
+  "name": "re-checkbox",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "re-form"
+  ],
+  "files": [
+    {
+      "path": "ui/reform/re-checkbox.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as CheckboxPrimitive from \"@radix-ui/react-checkbox\"\nimport { useFormContext } from \"react-hook-form\"\n\nimport { cn } from \"@/registry/default/lib/utils\"\nimport { Checkbox } from \"@/registry/default/ui/checkbox\"\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from \"@/registry/default/ui/form\"\n\nimport { ReFormFieldProps } from \"./re-form\"\n\nconst ReCheckbox = React.forwardRef<\n  React.ElementRef<typeof CheckboxPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &\n    ReFormFieldProps\n>(({ className, name, label, description, ...props }, _) => {\n  const form = useFormContext()\n\n  return (\n    <FormField\n      control={form.control}\n      name={name}\n      render={({ field }) => (\n        <FormItem\n          className={cn(className, \"space-y-0 items-top flex space-x-2\")}\n        >\n          <FormControl>\n            <Checkbox\n              {...props}\n              checked={field.value}\n              onCheckedChange={field.onChange}\n            />\n          </FormControl>\n          <div className=\"grid gap-1.5 leading-none\">\n            {label && <FormLabel>{label}</FormLabel>}\n            {description && <FormDescription>{description}</FormDescription>}\n          </div>\n          <FormMessage className=\"reform-message text-xs\" />\n        </FormItem>\n      )}\n    />\n  )\n})\n\nReCheckbox.displayName = \"ReCheckbox\"\nexport { ReCheckbox }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

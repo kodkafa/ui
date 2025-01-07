@@ -63,5 +63,6 @@ export async function transform(
     })
   }
 
-  return sourceFile.getText()
+  return sourceFile.getText().replace(/\/reform\/re-form"/g, '/re-form"')
+
 }

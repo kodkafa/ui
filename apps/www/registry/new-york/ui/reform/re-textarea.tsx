@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { InputHTMLAttributes, TextareaHTMLAttributes } from "react"
+import { TextareaHTMLAttributes } from "react"
 import { useFormContext } from "react-hook-form"
 
 import { cn } from "@/registry/new-york/lib/utils"
@@ -26,7 +26,7 @@ export type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {
 const ReTextarea = React.forwardRef<
   HTMLTextAreaElement,
   React.ComponentProps<"textarea"> & ReFormFieldProps
->(({ className, name, label, description, ...props }, _) => {
+>(({ className, name, label, description, ...props }) => {
   const form = useFormContext()
 
   return (
